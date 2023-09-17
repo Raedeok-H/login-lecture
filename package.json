@@ -4,11 +4,9 @@
   "description": "",
   "main": "app.js",
   "bin": { 
-    "_comment": "//바이너리라는 뜻, 실행파일이 담김",
     "login-lecture": "bin/www.js"
   },
   "dependencies": { 
-    "_comment": "// 의존 패키지들",
     "accepts": "^1.3.8",
     "ansi-styles": "^4.3.0",
     "array-flatten": "^1.1.1",
@@ -81,18 +79,14 @@
     "utils-merge": "^1.0.1",
     "vary": "^1.1.2"
   },
-  "devDependencies": {
-    "_comment": "//개발시에만 필요한 의존 패키지들, 프리티어, 이에스린트 등"
-  }, 
+  "devDependencies": {  }, 
   "scripts": {
     "start": "node ./bin/www.js", 
-    "_comment": "//npm start하면 해당 명령이 실행됨.",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "_comment": "//MIT 등 라이센스(출처를 남기지 않아도 되고 ~등등",
   "homepage": "",
   "repository": {
     "type": "git",
