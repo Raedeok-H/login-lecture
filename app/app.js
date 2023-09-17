@@ -1,8 +1,9 @@
 // --------------------------------------------------------------------------
-// 프런트를 위한 js 만들기, public 폴더 연결
+// 로그인 API만들기
 
 // 모듈
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 
 // 라우팅
@@ -12,13 +13,55 @@ const home = require("./src/routes/home");
 app.set("views", "./src/views");
 app.set("view engine", "ejs"); //html이랑 비슷한 확장자
 app.use(express.static(`${__dirname}/src/public`));
-//현재 파일이 있는 위치 안에 /src 안에 ~의 의미임
+
+app.use(bodyParser.json());
+// URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가
+// 포함될 경우 제대로 인식되지 않는 문제 해결
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 // use -> 미들웨어를 등록하는 메소드
 app.use("/", home);
 
 module.exports = app;
+// --------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------
+// 프런트를 위한 js 만들기, public 폴더 연결
+
+// 모듈
+// const express = require("express");
+// const app = express();
+
+// // 라우팅
+// const home = require("./src/routes/home");
+
+// // 앱 세팅
+// app.set("views", "./src/views");
+// app.set("view engine", "ejs"); //html이랑 비슷한 확장자
+// app.use(express.static(`${__dirname}/src/public`));
+// //현재 파일이 있는 위치 안에 /src 안에 ~의 의미임
+
+
+// // use -> 미들웨어를 등록하는 메소드
+// app.use("/", home);
+
+// module.exports = app;
 // --------------------------------------------------------------------------
 
 
