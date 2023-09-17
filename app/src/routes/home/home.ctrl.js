@@ -26,7 +26,7 @@ const process ={
             const idx = users.id.indexOf(id);
             if (users.psword[idx] === psword){
                 return res.json({
-                    success: ture
+                    success: true
                 });
             }
         }
