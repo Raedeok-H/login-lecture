@@ -1,13 +1,5 @@
 // --------------------------------------------------------------------------
-// pakage.json, pakage-lock.json, node_modules, npm start
-// pakage.json 정보로 npm install시 nod_modules를 생성함
-// pakage.json에 script설정으로 start라는 스크립트 실행 시, 시작될 파일을 설정할 수 있음
-// pakage.json은 버전의 range(범위)만 명시되어 있고, pakage-lock.json은 더 명확한 버전 정보를 담고 있음
-// ^과 ~, 단지 버전을 숫자로만 적어놓은 것의 차이
-//  => ^은 메이저 버전 제외 다운로드(마이너, 패치)
-//  => ~은 패치만 다운로드
-//  => 버전을 숫자만 표기한 것은 해당 버전을 의미
-"use strict"; // 에크마스크립트(ECMAScript) 문법을 준수하겠다는 뜻
+// 프런트를 위한 js 만들기, public 폴더 연결
 
 // 모듈
 const express = require("express");
@@ -19,11 +11,61 @@ const home = require("./src/routes/home");
 // 앱 세팅
 app.set("views", "./src/views");
 app.set("view engine", "ejs"); //html이랑 비슷한 확장자
+app.use(express.static(`${__dirname}/src/public`));
+//현재 파일이 있는 위치 안에 /src 안에 ~의 의미임
+
 
 // use -> 미들웨어를 등록하는 메소드
 app.use("/", home);
 
 module.exports = app;
+// --------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------
+// pakage.json, pakage-lock.json, node_modules, npm start
+// pakage.json 정보로 npm install시 nod_modules를 생성함
+// pakage.json에 script설정으로 start라는 스크립트 실행 시, 시작될 파일을 설정할 수 있음
+// pakage.json은 버전의 range(범위)만 명시되어 있고, pakage-lock.json은 더 명확한 버전 정보를 담고 있음
+// ^과 ~, 단지 버전을 숫자로만 적어놓은 것의 차이
+//  => ^은 메이저 버전 제외 다운로드(마이너, 패치)
+//  => ~은 패치만 다운로드
+//  => 버전을 숫자만 표기한 것은 해당 버전을 의미
+// "use strict"; // 에크마스크립트(ECMAScript) 문법을 준수하겠다는 뜻
+
+// // 모듈
+// const express = require("express");
+// const app = express();
+
+// // 라우팅
+// const home = require("./src/routes/home");
+
+// // 앱 세팅
+// app.set("views", "./src/views");
+// app.set("view engine", "ejs"); //html이랑 비슷한 확장자
+
+// // use -> 미들웨어를 등록하는 메소드
+// app.use("/", home);
+
+// module.exports = app;
 // --------------------------------------------------------------------------
 
 
